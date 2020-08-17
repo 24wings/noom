@@ -1,0 +1,22 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "assets": [
+    {
+      "include": "**/*.xml",
+      "exclude": "**/omitted.xml",
+      "watchAssets": true,
+      "outDir": "dist/assets"
+    }
+  ],
+  "watchAssets": true,
+  "compilerOptions": {
+    "assets": [
+      {
+        "include": "assets/**/*.*",
+        "watchAssets": true,
+        "outDir": "dist"
+      }
+    ]
+  }
+}

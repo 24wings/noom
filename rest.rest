@@ -1,0 +1,16 @@
+https://localhost/users/login
+
+###
+post http://localhost:3000/api/distribut/insert
+Content-Type: application/json
+
+{
+  "role":0,
+  "serviceIndex":0,
+  "shop_name":"123",
+  "shop_sign":"123",
+  "neighbourNum":0,
+  "nickname":"123",
+  "pickupList": "123",
+  "headPic":"123"
+}

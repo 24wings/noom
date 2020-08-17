@@ -1,0 +1,84 @@
+export class GetGoodsMenuItem {
+  'goods_id': number;
+  'is_on_sale': boolean;
+  'goods_name': string;
+  'sku': string;
+  'market_price': number;
+  'cq_price': string;
+  'price': string;
+  'sales_sum': string;
+  'store_count': string;
+  'store_count_desc': string;
+  'cq_maxnum': string;
+  'limit_buy': number;
+  'click_count': number;
+  'goods_content': '<p><img data-index="1594717698312-0" src="http://kaolaimg.hnkoala.com/public/upload/temp/2020/07-14/6d93e0a7b6a89e31113b5e9a696cf0c3.jpg" alt="23.jpg"></p><p><img data-index="1594717797967-0" src="http://kaolaimg.hnkoala.com/public/upload/temp/2020/07-14/459e4b337b2db60507c407d78752468c.jpg" alt="23_副本.jpg"> <img data-index="1594717821561-0" src="http://kaolaimg.hnkoala.com/public/upload/temp/2020/07-14/2ea0276318bc96b7d3f7e49656d71815.jpg" alt="24_副本.jpg"></p><p><img data-index="1594717845106-0" src="http://kaolaimg.hnkoala.com/public/upload/temp/2020/07-14/cc42b8497a173d4d6cd45d62ab67637a.jpg" alt="15.jpg"> </p><p><img data-index="1594717877134-0" src="http://kaolaimg.hnkoala.com/public/upload/temp/2020/07-14/13912be27f25db1d6d797cbd38951097.jpg" alt="14.jpg"> </p> <p></p> <p></p>';
+  'original_img': 'http://kaolaimg.hnkoala.com/public/upload/goods/2020/06-29/082b058481d3cc406e5931fdd96cc751.jpg?x-oss-process=image/resize;w_450;h_450';
+  'prom_type': 1;
+  'imageUrls': string;
+  'discount': string;
+  'cq_sales_sum': string;
+  'cq_sales_sum_search': string;
+  'goods_sell_point': string;
+  'flash_sale': {
+    id: 24934;
+    title: '黄心中号土豆1袋（每袋约2斤±0.2斤）';
+    goods_id: 210332;
+    price: '2.88';
+    goods_num: 640;
+    buy_limit: 100;
+    buy_num: 211;
+    description: '';
+    start_time: 1596902400000;
+    end_time: 1596985199000;
+    is_end: 0;
+    grade: 0;
+    server_time: 1596966935311;
+    shop_maxNum: 100;
+    groupBuyMinNum: 0;
+    groupBuyMaxNum: 0;
+  };
+  'categoryName': '今日爆款';
+  'is_lock': 0;
+  'cat_id': 1002097;
+  'title_prefix': '';
+  'goods_remark': '营养价值高';
+  'labels': null;
+  'step_num': 1;
+  'subheading': '';
+  'start_time': Date;
+  'sort': number;
+  'cate_sort': 999;
+  'release_time': Date;
+  'release_end_time': Date;
+  'shop_maxNum': number;
+  'hot_goods': boolean;
+  'hotGoods_start_time': null;
+  'hotGoods_end_time': null;
+  'goods_price': '2.99';
+  'price_sort': 0;
+  'hotSeconds': null;
+  'commission': 0.38;
+  'goods_reward': null;
+  'dist_real_price': null;
+  'goods_reward_ratio': 0.13;
+  'member_goods_price': null;
+  'video_img': '';
+  'video_url': '';
+  'single_image': '';
+  'shop_cat_id': 1000005;
+  'shop_cat_name': '每日蔬菜';
+  'daySaleNum': null;
+  'rank': 0;
+  'sub_rank': 0;
+  'rank_des': '';
+  'sub_rank_des': '';
+  'buyer_info': null;
+}
+
+export class GetGoodsMenuOutput {
+  rows: {
+    goods: GetGoodsMenuItem[];
+  };
+  more_page: boolean;
+}

@@ -1,0 +1,21 @@
+export let data = {
+  result: 'ok',
+  errcode: 0,
+  errmsg: 'success',
+  server_time: 1596297920,
+  rows: { __: 'please ignore the business data.' },
+  row: {
+    cq_role: 1,
+    cert_status: 0,
+    topic_count: 0,
+    order_count: 0,
+    user_money: 0.0,
+    frozen_money: 0.0,
+    participate_in: 0,
+    unsend_count: 0,
+    role: 0,
+    character: 0,
+    agreement_flag: 0,
+    is_synced: 0,
+  },
+};
