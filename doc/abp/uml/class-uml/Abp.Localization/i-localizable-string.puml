@@ -1,0 +1,7 @@
+@startuml ILocalizableString
+interface ILocalizableString{
+ + Localize(ILocalizationContext context):string;
+ + Localize(ILocalizationContext context, CultureInfo culture):string;
+}
+@enduml
+批注

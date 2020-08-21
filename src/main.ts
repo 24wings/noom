@@ -6,16 +6,18 @@ import * as fs from 'fs';
 import * as http from 'http';
 import * as https from 'https';
 import * as express from 'express';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
 
 const httpsOptions = {
-  key: fs.readFileSync(__dirname + '/assets/secrets/market.airuanjian.vip.key'),
+  key: fs.readFileSync(__dirname + '\\assets\\secrets\\market.airuanjian.vip.key'),
   cert: fs.readFileSync(
-    __dirname + '/assets/secrets/market.airuanjian.vip.pem',
+    __dirname + '\\assets\\secrets\\market.airuanjian.vip.pem',
   ),
 };
 async function bootstrap() {
   const server = express();
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), { logger: ["debug", "log", "verbose"] });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, new ExpressAdapter(server), { logger: ["debug", "log", "verbose", "error"], });
   const port = 3000;
 
   // swagger
@@ -32,7 +34,8 @@ async function bootstrap() {
   });
   SwaggerModule.setup('api', app, document);
   await app.init();
-
+  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  app.setViewEngine('hbs');
   // cors
   app.enableCors();
   http.createServer(server).listen(3000, async () => {

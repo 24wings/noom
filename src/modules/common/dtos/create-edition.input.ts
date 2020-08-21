@@ -1,6 +1,6 @@
-import { Feature } from 'src/modules/core/entitys/feature.entity';
 import { ApiExtraModels, ApiProperty } from '@nestjs/swagger';
-import { Edition } from 'src/modules/core/entitys/edition.entity';
+import { Edition } from 'src/database/repositorys/entitys/edition/edition.entity';
+import { Feature } from 'src/database/repositorys/entitys/feature/feature.entity';
 
 @ApiExtraModels()
 export class CreateEditionInput {

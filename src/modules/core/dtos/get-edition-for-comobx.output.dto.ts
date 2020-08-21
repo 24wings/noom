@@ -1,5 +1,5 @@
 import { CommonOutput } from 'src/shared/dtos/common-output.dto';
-import { Edition } from '../entitys/edition.entity';
+import { Edition } from '../../../database/repositorys/entitys/edition/edition.entity';
 import { ComboboxItemDto } from 'src/shared/dtos/combobox-item.dto';
 import { ApiProperty, ApiExtraModels } from '@nestjs/swagger';
 

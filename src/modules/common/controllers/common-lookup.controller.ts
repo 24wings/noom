@@ -4,12 +4,12 @@ import {
   GetEditionForComboxOutput,
   GetEdtionComboxItem,
 } from 'src/modules/core/dtos/get-edition-for-comobx.output.dto';
-import { Edition } from 'src/modules/core/entitys/edition.entity';
-import { EditionService } from 'src/modules/core/services/edition.service';
+import { Edition } from 'src/database/repositorys/entitys/edition/edition.entity';
+import { EditionService } from 'src/database/repositorys/services/edition.service';
 
 @Controller('api/services/app/CommonLookup')
 export class CommonLookupController {
-  constructor(private editionService: EditionService) {}
+  constructor(private editionService: EditionService) { }
   @Get(`GetEditionsForCombobox`)
   @ApiQuery({ name: 'onlyFreeItems', description: '是否只拉取免费版本' })
   @ApiResponse({ status: 200, type: GetEditionForComboxOutput })

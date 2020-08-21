@@ -1,10 +1,10 @@
 import { ILocalizationConfiguration } from "./i-localization-configuration";
 import { ILocalizationSourceList } from "./sources/i-localization-source-list";
-import { LanguageInfo } from "src/database/language/languageInfo.entity";
 import { ILocalizationSource } from "./sources/i-localization-source";
-import { Injectable } from "@nestjs/common";
+import { Injectable, Scope } from "@nestjs/common";
+import { LanguageInfo } from "src/database/repositorys/entitys/localization/languageInfo.entity";
 
-@Injectable()
+@Injectable({scope:Scope.DEFAULT})
 export class LocalizationConfiguration implements ILocalizationConfiguration {
   /// <inheritdoc/>
   languages: LanguageInfo[];

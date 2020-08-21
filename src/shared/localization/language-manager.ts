@@ -1,8 +1,8 @@
 import { ILanguageManager } from "./i-language-manager";
-import { LanguageInfo } from "src/database/language/languageInfo.entity";
 import { DefaultLanguageProvider } from "./language-provider";
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { CultureInfo } from "./dictionaries/culture-info";
+import { LanguageInfo } from "src/database/repositorys/entitys/localization/languageInfo.entity";
 
 @Injectable()
 export class LanguageManager implements ILanguageManager {

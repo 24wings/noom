@@ -1,6 +1,8 @@
 import { ILocalizationDictionary } from "./i-localization-dictionary";
 
-/** */
+/** 
+ * :TODO:
+*/
 export interface ILocalizationDictionaryProvider {
   defaultDictionary: ILocalizationDictionary;
 

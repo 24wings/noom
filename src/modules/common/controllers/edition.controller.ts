@@ -12,9 +12,8 @@ import {
   GetEditionForEditOutput,
   GetEditionResult,
 } from '../dtos/get-edtion-for-edit.output';
-import { EditionService } from 'src/modules/core/services/edition.service';
-import { Edition } from 'src/modules/core/entitys/edition.entity';
-import { FeatureService } from '../services/feature.service';
+import { EditionService } from 'src/database/repositorys/services/edition.service';
+import { Edition } from 'src/database/repositorys/entitys/edition/edition.entity';
 import { CreateEditionInput } from '../dtos/create-edition.input';
 import { CommonOutput } from 'src/shared/dtos/common-output.dto';
 
@@ -23,8 +22,7 @@ import { CommonOutput } from 'src/shared/dtos/common-output.dto';
 export class EditionController {
   constructor(
     private editionService: EditionService,
-    private featureService: FeatureService,
-  ) {}
+  ) { }
 
   @ApiQuery({ name: 'id', required: false, description: '版本id' })
   @ApiResponse({
@@ -45,8 +43,8 @@ export class EditionController {
     var result = new GetEditionForEditOutput();
     result.result = new GetEditionResult();
     result.result.edition = edition;
-    result.result.featureValues = await this.featureService.findAll();
-    result.result.features = await this.featureService.findAll();
+    // result.result.featureValues = await this.featureService.findAll();
+    // result.result.features = await this.featureService.findAll();
     return result;
   }
   @HttpCode(200)

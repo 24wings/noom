@@ -1,14 +1,14 @@
 import { Get, Controller, Query } from '@nestjs/common';
 import { PagedOutput } from 'src/shared/dtos/paged-outout.dto';
-import { User } from 'src/modules/passport/entitys/user.entity';
-import { UsersService } from 'src/shared/services/users.services';
 import { ApiBearerAuth, ApiTags, ApiOperation } from '@nestjs/swagger';
+import { User } from 'src/database/repositorys/entitys/rbac/user.entity';
+import { UsersService } from 'src/database/repositorys/services/user.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()
 @Controller('api/services/app/User')
 export class AppUserController {
-  constructor(private userServices: UsersService) {}
+  constructor(private userServices: UsersService) { }
   @ApiOperation({ summary: '获取所有用户' })
   @Get('GetUsers')
   async GetUsers(

@@ -1,0 +1,7 @@
+{
+ 
+    "theme":"minimal",
+  "mode": "file",
+  "out": "docs",
+  "json":"out/json"
+}

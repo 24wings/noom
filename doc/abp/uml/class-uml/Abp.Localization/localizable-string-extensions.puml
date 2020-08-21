@@ -1,0 +1,6 @@
+@startuml LocalizableStringExtensions
+class LocalizableStringExtensions <<static>> {
++ {static} string Localize(this ILocalizableString localizableString, ILocalizationManager localizationManager)
++ {static} string Localize(this ILocalizableString localizableString, ILocalizationManager localizationManager, CultureInfo culture)
+}
+@enduml

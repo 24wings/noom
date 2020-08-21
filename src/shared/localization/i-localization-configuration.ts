@@ -1,9 +1,9 @@
 /// <summary>
 /// Used for localization configurations.
 
-import { LanguageInfo } from "src/database/language/languageInfo.entity";
 import { ILocalizationSourceList } from "./sources/i-localization-source-list";
 import { ILocalizationSource } from "./sources/i-localization-source";
+import { LanguageInfo } from "src/database/repositorys/entitys/localization/languageInfo.entity";
 
 /// </summary>
 export interface ILocalizationConfiguration {

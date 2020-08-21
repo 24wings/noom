@@ -1,8 +1,9 @@
 import { Controller, Get, Req, Request, UseGuards } from '@nestjs/common';
 import { logind } from '../../common/dtos/logind.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { UsersService } from '../../../shared/services/users.services';
 import { JwtService } from '@nestjs/jwt';
+import { UsersService } from 'src/database/repositorys/services/user.service';
+import { SessionService } from 'src/auth/services/session.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()
@@ -11,22 +12,16 @@ export class AppSessionController {
   constructor(
     private userService: UsersService,
     private jwtService: JwtService,
-  ) {}
+    private sessionService: SessionService
+  ) { }
   @Get('GetCurrentLoginInformations')
-  public GetCurrentLoginInformations(@Request() req: any) {
+  async GetCurrentLoginInformations(@Request() req: any) {
     console.log('loginUser', req.user, req.headers.authorization);
-    if (req.headers.authorization) {
-      var data = this.jwtService.decode(
-        req.headers.authorization.replace(`Bearer `, ''),
-        { json: true },
-      );
-      if (data) {
-        return logind;
-      }
-    }
+    let user = await this.sessionService.getUserOrNull();
+
     return {
       result: {
-        user: null,
+        user: user,
         tenant: null,
         application: {
           version: '8.1.0.0',

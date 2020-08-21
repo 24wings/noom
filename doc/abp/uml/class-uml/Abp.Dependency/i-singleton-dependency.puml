@@ -1,0 +1,5 @@
+@startuml ISingletonDependency
+interface ISingletonDependency{
+
+}
+@enduml

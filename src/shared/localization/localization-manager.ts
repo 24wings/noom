@@ -1,13 +1,14 @@
 import { ILocalizationSource } from "./sources/i-localization-source";
 import { LocalizationConfiguration } from "./localization-configuration";
 import { LanguageManager } from "./language-manager";
-import { BadRequestException } from "@nestjs/common";
+import { BadRequestException, Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { DictionaryBasedLocalizationSource } from "./dictionaries/dictionary-base-localization-source";
 import { IDictionaryBasedLocalizationSource } from "./dictionaries/i-dictionary-based-localization-source";
 import { ILocalizationManager } from "./i-localization-manager";
 
-export class LocalizationManager implements ILocalizationManager {
-
+@Injectable()
+export class LocalizationManager implements ILocalizationManager,OnApplicationBootstrap {
+  private sources: Map<string, ILocalizationSource> = new Map<string, ILocalizationSource>()
 
   /// <summary>
   /// Constructor.
@@ -15,13 +16,15 @@ export class LocalizationManager implements ILocalizationManager {
   constructor(
     private languageManager: LanguageManager,
     private configuration: LocalizationConfiguration,
-    private sources: Map<string, ILocalizationSource> = new Map<string, ILocalizationSource>()
+   
   ) {
   }
+  onApplicationBootstrap() {
+    
+    this.InitializeSources();
 
-  public Initialize(): void {
-    // this.InitializeSources();
   }
+
 
   private InitializeSources(): void {
     if (!this.configuration.isEnabled) {

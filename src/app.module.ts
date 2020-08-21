@@ -18,16 +18,30 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ScheduleTaskService } from './sms/schedules/schedule-task.service';
 import { getManager } from 'typeorm';
-import { User } from './modules/passport/entitys/user.entity';
 import { DatabaseModule } from './database/database.module';
-import { KernelModule } from './kernel/kernel.module';
-import { LocalizationModule } from './shared/localization/localization.module';
+import { LocalizationModule } from './common/localization/localization.module';
+import { ConfigurationModule } from './common/configuration/configuration.module';
+import { AuthModule } from './auth/auth.module';
+import { TenantModule } from './common/tenant/tenant.module';
+import { EditionModule } from './common/edition/edition.module';
+import { RbacModule } from './common/rbac/rbac.module';
+import { AuditLogModule } from './common/audit-log/audit-log.module';
+import { AppCacheModule } from './common/cache/cache.modue';
+import { SettingModule } from './common/setting/setting.module';
+import { DesignModule } from './common/design/design.module';
 
 @Module({
   imports: [
-    LocalizationModule,
-    KernelModule,
+    DesignModule,
+    SettingModule,
+    AppCacheModule,
+    AuditLogModule,
+    RbacModule,
+    EditionModule,
+    TenantModule,
+    AuthModule,
     DatabaseModule,
+    ConfigurationModule,
     TypeOrmModule.forRoot(),
     PassportModule,
     SharedModule,
@@ -37,6 +51,8 @@ import { LocalizationModule } from './shared/localization/localization.module';
     CacheModule.register(),
     ScheduleModule.forRoot(),
     SmsModule,
+    LocalizationModule,
+
   ],
   controllers: [AppController],
   providers: [
@@ -47,8 +63,8 @@ import { LocalizationModule } from './shared/localization/localization.module';
     },
   ],
 })
-export class AppModule  {
- 
+export class AppModule {
+
 }
 
 

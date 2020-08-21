@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { ApiExtraModels, ApiProperty } from '@nestjs/swagger';
-import { Edition } from '../entitys/edition.entity';
+import { Edition } from '../../../database/repositorys/entitys/edition/edition.entity';
 
 @ApiExtraModels()
 export class GetEditionResult {

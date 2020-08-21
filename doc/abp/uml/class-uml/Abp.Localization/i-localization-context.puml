@@ -1,0 +1,7 @@
+@startuml ILocalizationContext
+interface ILocalizationContext
+{
+   +   readonly  ILocalizationManager LocalizationManager
+}
+
+@enduml

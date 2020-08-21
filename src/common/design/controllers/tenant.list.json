@@ -1,0 +1,44 @@
+{
+  "loadUrl": "/api/services/app/Tenant/GetTenants",
+  "columns": [
+    {
+      "type": "checkbox",
+      "index": "checked"
+    },
+    {
+      "index": "tenancyName",
+      "title": "TenantName"
+    },
+    {
+      "index": "name",
+      "title": "Name"
+    },
+    {
+      "index": "editionDisplayName",
+      "title": "Edition"
+    },
+    {
+      "index": "subscriptionEndDateUtc",
+      "title": "SubscriptionEndDateUtc"
+    },
+    {
+      "index": "isActive",
+      "title": "Active",
+      "type": "yn"
+    },
+    {
+      "index": "creationTime",
+      "title": "CreationTime",
+      "type": "date"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "添加公司",
+      "action": "create",
+      "type": "primary",
+      "icon": "plus",
+      "id": "tenant-create-form"
+    }
+  ]
+}

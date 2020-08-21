@@ -1,0 +1,12 @@
+@startuml LocalizableString
+class LocalizableString {
++  string SourceName
++  string Name
++  LocalizableString()
++  LocalizableString(string name, string sourceName)
++  Localize(ILocalizationContext context)
++  Localize(ILocalizationContext context, CultureInfo culture)
+}
+LocalizableString -up-> ILocalizableString
+LocalizableString o-- ILocalizationContext
+@enduml

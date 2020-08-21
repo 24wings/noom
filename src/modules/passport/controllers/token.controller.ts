@@ -6,6 +6,7 @@ import {
   Res,
   Response,
   HttpCode,
+  ForbiddenException,
 } from '@nestjs/common';
 import { AuthenticateOutput } from '../dtos/authenticate-output.dto';
 import {
@@ -14,18 +15,16 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { UsersService } from '../../../shared/services/users.services';
 import { AuthenticateInputDto } from '../dtos/authenticate-input.dto';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from 'src/database/repositorys/services/auth.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()
 @Controller('api/TokenAuth')
 export class TokenController {
   constructor(
-    private usersService: UsersService,
     private authService: AuthService,
-  ) {}
+  ) { }
   @HttpCode(200)
   @ApiOperation({ summary: '管理员用户登录' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -34,6 +33,8 @@ export class TokenController {
   async Authenticate(
     @Body() authInput: AuthenticateInputDto,
   ): Promise<AuthenticateOutput> {
+
+
     var response = new AuthenticateOutput({
       accessToken:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IkU0WUZURlVURFVWUTJITlVRTllWRVFYSzM2QUdLUjVBIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJzdWIiOiIxIiwianRpIjoiZTY1MjU4OTUtZjM2Ni00ZWU5LWIxNDItYzJmNWVkYzdkMmQ5IiwiaWF0IjoxNTk2NDc0NTE4LCJ0b2tlbl92YWxpZGl0eV9rZXkiOiJkYjM1NTE0YS1hZjcwLTRjZTUtYmYwOC05MTQxMWM3MjI4ZWYiLCJ1c2VyX2lkZW50aWZpZXIiOiIxIiwidG9rZW5fdHlwZSI6IjAiLCJuYmYiOjE1OTY0NzQ1MTgsImV4cCI6MTU5NjU2MDkxOCwiaXNzIjoiZVNob3BMaW5rZXIiLCJhdWQiOiJlU2hvcExpbmtlciJ9.aPhC2K4T-eMdt3ZoWtRrirVLUTKTZzJo7RQiM1cqv8Q',
@@ -50,11 +51,7 @@ export class TokenController {
       twoFactorRememberClientToken: null,
       userId: 1,
     });
-    console.log(
-      authInput,
-      authInput.userNameOrEmailAddress,
-      authInput.password,
-    );
+
     var res = await this.authService.validateUser(
       authInput.userNameOrEmailAddress,
       authInput.password,
@@ -69,6 +66,7 @@ export class TokenController {
       response.encryptedAccessToken = code.access_token;
     } else {
       console.log('login err');
+      throw new ForbiddenException("用户名或密码错误");
     }
     console.log(response);
     return response;

@@ -21,10 +21,10 @@ import { UsersLoginOutputDto } from '../dtos/users-login-output.dto';
 import { MockWechatService } from 'src/shared/services/mock-wechat.service';
 import { UploadProfileInputDto } from '../dtos/upload-profile-input.dto';
 import { JwtAuthGuard } from '../../../shared/guard/jwt.guard';
-import { AuthService } from '../../../shared/services/auth.service';
-import { UsersService } from '../../../shared/services/users.services';
+import { AuthService } from '../../../database/repositorys/services/auth.service';
 import { UserHomeOutput } from '../dtos/user-home.output';
 import { MyAddressOutput } from '../dtos/myaddress.output';
+import { UsersService } from 'src/database/repositorys/services/user.service';
 @ApiBearerAuth()
 @Controller('users')
 export class UserController {
@@ -32,7 +32,7 @@ export class UserController {
     private wechatService: MockWechatService,
     private authService: AuthService,
     private usersService: UsersService,
-  ) {}
+  ) { }
   @ApiTags('shop')
   @Get('login')
   @ApiOperation({ summary: '微信用户登录' })

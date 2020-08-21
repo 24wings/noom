@@ -1,4 +1,4 @@
-import { LanguageInfo } from "src/database/language/languageInfo.entity";
+import { LanguageInfo } from "src/database/repositorys/entitys/localization/languageInfo.entity";
 
 export interface ILanguageManager {
   currentLanguage: LanguageInfo;
