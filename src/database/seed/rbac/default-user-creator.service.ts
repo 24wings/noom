@@ -10,7 +10,7 @@ export class DefaultUserCreatorService implements OnApplicationBootstrap {
   async onApplicationBootstrap() {
     const admin = this.userRepository.create({
       id: 1,
-      userName: 'admin',
+      userName: '2121718893@qq.com',
       nickname: 'admin',
       password: '123qwe'
     });

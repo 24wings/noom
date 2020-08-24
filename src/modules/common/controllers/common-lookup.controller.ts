@@ -1,11 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiQuery, ApiResponse } from '@nestjs/swagger';
-import {
-  GetEditionForComboxOutput,
-  GetEdtionComboxItem,
-} from 'src/modules/core/dtos/get-edition-for-comobx.output.dto';
+
 import { Edition } from 'src/database/repositorys/entitys/edition/edition.entity';
 import { EditionService } from 'src/database/repositorys/services/edition.service';
+import { GetEditionForComboxOutput, GetEdtionComboxItem } from 'src/common/edition/dtos/get-edition-for-comobx.output.dto';
 
 @Controller('api/services/app/CommonLookup')
 export class CommonLookupController {

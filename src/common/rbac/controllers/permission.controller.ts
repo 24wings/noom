@@ -12,7 +12,6 @@ export class PermissionController {
   @Get('GetAllPermissions')
   async GetAllPermissions(): Promise<GetAllPermissionsOutput> {
     let result = await this.permissionService.findAll();
-    console.log(result);
     return Object.assign(new CommonOutput(),
       {
         result: {

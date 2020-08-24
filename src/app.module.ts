@@ -12,10 +12,8 @@ import { PassportModule } from './modules/passport/passport.module';
 import { SharedModule } from './shared/shared.module';
 import { ShopModule } from './modules/shop/shop.module';
 import { AireActiveModule } from './modules/air-active/aire-active.module';
-import { CoreModule } from './modules/core/core.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
-import { ScheduleTaskService } from './sms/schedules/schedule-task.service';
 import { getManager } from 'typeorm';
 import { DatabaseModule } from './database/database.module';
 import { LocalizationModule } from './common/localization/localization.module';
@@ -46,7 +44,6 @@ import { DesignModule } from './common/design/design.module';
     SharedModule,
     ShopModule,
     AireActiveModule,
-    CoreModule,
     CacheModule.register(),
     ScheduleModule.forRoot(),
     LocalizationModule,

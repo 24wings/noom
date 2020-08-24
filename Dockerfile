@@ -5,4 +5,5 @@ RUN npm install
 
 COPY . .
 expose 3000
-cmd ["npm","run","start:prod"]
+cmd ["npm","i","pm2","-g"]
+cmd ["npm","run","start:deploy"]

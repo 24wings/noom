@@ -13,6 +13,9 @@ export class RoleService {
   findById(id: number) {
     return this.roleRepository.findOne(id);
   }
+  findByIds(ids: string[]) {
+    return this.roleRepository.findByIds(ids);
+  }
 
   save(role: Role) {
     return this.roleRepository.save(role);

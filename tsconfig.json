@@ -11,11 +11,6 @@
     "outDir": "./dist",
     "resolveJsonModule": true,
     "baseUrl": "./",
-    "incremental": true,
-    "paths": {
-      "@Shared": [
-        "../Shared"
-      ]
-    }
+    "incremental": true
   }
 }

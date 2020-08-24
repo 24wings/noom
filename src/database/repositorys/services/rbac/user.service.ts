@@ -17,6 +17,9 @@ export class UsersService {
   findOne(id: number): Promise<User> {
     return this.usersRepository.findOne(id);
   }
+  findOneWithRoles(id: number) {
+    return this.usersRepository.findOne(id, { relations: ['roleList'] });
+  }
   findByUsername(username: string) {
     return this.usersRepository.findOne({ where: { userName: username } });
   }
@@ -24,7 +27,7 @@ export class UsersService {
     return this.usersRepository.findOne({ where: { openid: openId } });
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
   async add(user: User) {
@@ -35,6 +38,9 @@ export class UsersService {
     console.log('create new User and id is' + JSON.stringify(id));
     newUser.id = id.id;
     return newUser;
+  }
+  save(user: User) {
+    return this.usersRepository.save(user);
   }
   async updateUser(user: User) {
     await this.usersRepository.update(user.id, user);

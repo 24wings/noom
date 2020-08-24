@@ -6,4 +6,4 @@ import { EditionController } from "./controllers/edition.controller";
 })
 export class EditionModule {
 
-}
+} 
