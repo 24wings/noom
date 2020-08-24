@@ -3,10 +3,10 @@ import { UserConfigurationAllOutput, LocalizationOutput } from "../dtos/user-con
 import { LanguageService } from "src/database/repositorys/services/localization/language.service";
 import { CultureInfo } from "src/shared/localization/dictionaries/culture-info";
 import { LocalizationString } from "src/database/repositorys/entitys/localization/localization-string.entity";
-import { FeatureService } from "src/database/repositorys/services/feature.service";
-import { PermissionService } from "src/database/repositorys/services/permission.service";
+import { FeatureService } from "src/database/repositorys/services/feature/feature.service";
+import { PermissionService } from "src/database/repositorys/services/rbac/permission.service";
 import { CommonOutput } from "src/shared/dtos/common-output.dto";
-import { SettingService } from "src/database/repositorys/services/setting.service";
+import { SettingService } from "src/database/repositorys/services/feature/setting.service";
 
 @Controller("AbpUserConfiguration")
 export class UserConfigurationController {

@@ -32,4 +32,8 @@ export class CommonLookupController {
       ),
     );
   }
+  @Get(`GetDefaultEditionName`)
+  GetDefaultEditionName() {
+    return { "result": { "name": "Standard" }, "targetUrl": null, "success": true, "error": null, "unAuthorizedRequest": false, "__abp": true };
+  }
 }

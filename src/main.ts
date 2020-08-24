@@ -34,7 +34,7 @@ async function bootstrap() {
   });
   SwaggerModule.setup('api', app, document);
   await app.init();
-  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  app.setBaseViewsDir(join(__dirname, 'views'));
   app.setViewEngine('hbs');
   // cors
   app.enableCors();

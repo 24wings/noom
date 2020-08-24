@@ -2,7 +2,7 @@ import { Get, Controller, Query } from '@nestjs/common';
 import { PagedOutput } from 'src/shared/dtos/paged-outout.dto';
 import { ApiBearerAuth, ApiTags, ApiOperation } from '@nestjs/swagger';
 import { User } from 'src/database/repositorys/entitys/rbac/user.entity';
-import { UsersService } from 'src/database/repositorys/services/user.service';
+import { UsersService } from 'src/database/repositorys/services/rbac/user.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()

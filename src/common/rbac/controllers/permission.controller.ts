@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { ApiTags, ApiResponse } from "@nestjs/swagger";
-import { PermissionService } from "src/database/repositorys/services/permission.service";
+import { PermissionService } from "src/database/repositorys/services/rbac/permission.service";
 import { GetAllPermissionsOutput } from "../dtos/output/get-all-permissions.output";
 import { CommonOutput } from "src/shared/dtos/common-output.dto";
 

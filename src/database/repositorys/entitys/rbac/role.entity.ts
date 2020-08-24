@@ -9,7 +9,7 @@ export class Role {
   name: string;
   @Column()
   displayName: string;
-  @Column()
+  @Column({ default: false })
   isStatic: boolean;
   @Column()
   isDefault: boolean;

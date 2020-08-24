@@ -1,7 +1,7 @@
 import { Injectable, Scope, Request, Req, Inject } from "@nestjs/common";
 import { REQUEST } from "@nestjs/core";
 import { JwtService } from "@nestjs/jwt";
-import { UsersService } from "src/database/repositorys/services/user.service";
+import { UsersService } from "src/database/repositorys/services/rbac/user.service";
 import { User } from "src/database/repositorys/entitys/rbac/user.entity";
 
 @Injectable({ scope: Scope.REQUEST })

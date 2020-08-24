@@ -1,8 +1,0 @@
-@startuml ILocalizationManager
-interface ILocalizationManager
-{
- # ILocalizationSource GetSource(string name);
-
- # IReadOnlyList<ILocalizationSource> GetAllSources();
-}
-@enduml

@@ -21,10 +21,10 @@ import { UsersLoginOutputDto } from '../dtos/users-login-output.dto';
 import { MockWechatService } from 'src/shared/services/mock-wechat.service';
 import { UploadProfileInputDto } from '../dtos/upload-profile-input.dto';
 import { JwtAuthGuard } from '../../../shared/guard/jwt.guard';
-import { AuthService } from '../../../database/repositorys/services/auth.service';
+import { AuthService } from '../../../database/repositorys/services/rbac/auth.service';
 import { UserHomeOutput } from '../dtos/user-home.output';
 import { MyAddressOutput } from '../dtos/myaddress.output';
-import { UsersService } from 'src/database/repositorys/services/user.service';
+import { UsersService } from 'src/database/repositorys/services/rbac/user.service';
 @ApiBearerAuth()
 @Controller('users')
 export class UserController {

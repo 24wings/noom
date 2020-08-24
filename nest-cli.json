@@ -16,6 +16,11 @@
         "include": "assets/**/*.*",
         "watchAssets": true,
         "outDir": "dist"
+      },
+      {
+        "include": "views/**/*.*",
+        "watchAssets": true,
+        "outDir": "dist"
       }
     ]
   }

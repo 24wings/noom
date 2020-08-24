@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Post, Body, Put, Req, Request, Ip } from "@nestjs/common";
-import { TenantService } from "src/database/repositorys/services/tenant.service";
+import { TenantService } from "src/database/repositorys/services/rbac/tenant.service";
 import { ApiResponse, ApiBody } from "@nestjs/swagger";
 import { GetTenantOutput } from "../dtos/get-tenants.output";
 import { CommonOutput } from "src/shared/dtos/common-output.dto";

@@ -16,7 +16,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { AuthenticateInputDto } from '../dtos/authenticate-input.dto';
-import { AuthService } from 'src/database/repositorys/services/auth.service';
+import { AuthService } from 'src/database/repositorys/services/rbac/auth.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()

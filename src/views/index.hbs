@@ -1,0 +1,88 @@
+<page-header-wrapper [title]="l({{list.title}})">
+  <nz-card>
+    <div>
+      <form (submit)="getTenants()" autocomplete="off" nz-row>
+        {{#each toolbar.formItems}}
+        <nz-form-item nz-col nzSpan="12">
+          <div nz-row>
+            <nz-form-label nz-col nzSpan="6" for="TenantNameOrTenancyCode">&lt;{ "{{label}}" | localize }}
+            </nz-form-label>
+            <nz-form-control nz-col nzSpan="16">
+              <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                <input nz-input [(ngModel)]="filter.{{field}}" id="TenantNameOrTenancyCode" name="{{field}}"
+                       placeholder="&lt;{ 'SearchWithThreeDot' | localize }}" type="text" />
+              </nz-input-group>
+              <ng-template #suffixIconButton>
+                <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+              </ng-template>
+
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+        {{/each}}
+        <nz-form-item nz-col nzSpan="12">
+          <div nz-row>
+            <nz-form-label nz-col nzSpan="6" for="EditionDropdown">&lt;{ "Edition" | localize }}</nz-form-label>
+            <nz-form-control nz-col nzSpan="16">
+              <edition-combo [(selectedEdition)]="filters.selectedEditionId" id="EditionDropdown"></edition-combo>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+
+        <nz-form-item nz-col nzSpan="12">
+          <div nz-row>
+            <nz-form-label nz-col nzSpan="6">
+              <input nz-input [(ngModel)]="filters.subscriptionEndDateRangeActive"
+                     id="TenantsTable_SubscriptionEndDateRangeActive" name="SubscriptionEndDateRangeActive"
+                     type="checkbox"
+                     value="true" /> &lt;{ "SubscriptionEndDate" | localize }}
+            </nz-form-label>
+            <nz-form-control nz-col nzSpan="16">
+
+              <nz-range-picker [(ngModel)]="subscriptionDateRange"
+                               [disabled]="!filters.subscriptionEndDateRangeActive ? 'disabled' : null"
+                               dateRangePickerMomentModifier
+                               name="SubscriptionEndDateRange" readonly="readonly">
+              </nz-range-picker>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+
+        <nz-form-item nz-col nzSpan="12">
+          <div nz-row>
+            <nz-form-label nz-col nzSpan="6">
+              <input [(ngModel)]="filters.creationDateRangeActive" id="TenantsTable_CreationDateRangeActive"
+                     name="CreationDateRangeActive" type="checkbox" value="true" /> &lt;{ "CreationTime" | localize }}
+            </nz-form-label>
+            <nz-form-control nz-col nzSpan="16">
+              <div>
+
+                <nz-range-picker #drpCreationDate [(ngModel)]="creationDateRange"
+                                 [disabled]="!filters.creationDateRangeActive ? 'disabled' : null" bsDaterangepicker
+                                 class="form-control" dateRangePickerMomentModifier name="CreationDateRange"
+                                 readonly="readonly">
+                </nz-range-picker>
+              </div>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+
+
+      </form>
+    </div>
+    <nz-form-item>
+      <button nz-button nzType="primary" (click)="createTenant()" *ngIf="'Pages.Tenants.Create' | permission"> <i
+           nz-icon nzType="plus"></i>&lt;{l('CreateNewTenant')}}</button>
+    </nz-form-item>
+    <st [data]="dataList" [columns]="columns" [loading]="loading"
+        [page]="{pageNumber:pageNumber,show:show,totalItems:totalItems,totalPages:totalPages}"></st>
+  </nz-card>
+
+
+</page-header-wrapper>
+
+<createTenantModal #createTenantModal (modalSave)="getTenants()"></createTenantModal>
+<editTenantModal #editTenantModal (modalSave)="getTenants()"></editTenantModal>
+<tenantFeaturesModal #tenantFeaturesModal></tenantFeaturesModal>
+<commonLookupModal #impersonateUserLookupModal (itemSelected)="impersonateUser($event)"></commonLookupModal>
+<entityTypeHistoryModal #entityTypeHistoryModal></entityTypeHistoryModal>

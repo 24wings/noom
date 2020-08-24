@@ -1,7 +1,0 @@
-@startuml classSkin
-skinparam class {
-BackgroundColor PaleGreen
-ArrowColor SeaGreen
-BorderColor SpringGreen
-}
-@enduml

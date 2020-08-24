@@ -1,5 +1,5 @@
 import { Module, Global } from '@nestjs/common';
-import { AuthService } from '../database/repositorys/services/auth.service';
+import { AuthService } from '../database/repositorys/services/rbac/auth.service';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { LocalStrategy } from './strategy/local.strategy';
 import { TypeOrmModule } from '@nestjs/typeorm';

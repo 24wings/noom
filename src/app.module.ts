@@ -13,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { ShopModule } from './modules/shop/shop.module';
 import { AireActiveModule } from './modules/air-active/aire-active.module';
 import { CoreModule } from './modules/core/core.module';
-import { SmsModule } from './sms/sms.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ScheduleTaskService } from './sms/schedules/schedule-task.service';
@@ -50,7 +49,6 @@ import { DesignModule } from './common/design/design.module';
     CoreModule,
     CacheModule.register(),
     ScheduleModule.forRoot(),
-    SmsModule,
     LocalizationModule,
 
   ],
