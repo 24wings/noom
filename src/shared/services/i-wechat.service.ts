@@ -1,4 +1,4 @@
-import { CodeToSession } from '../../modules/common/dtos/code2-to-session';
+import { CodeToSession } from '../../common/common/dtos/code2-to-session';
 
 export class IWechatService {
   getAccessToken(

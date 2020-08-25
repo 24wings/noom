@@ -7,7 +7,7 @@ import { TokenController } from './controllers/token.controller';
 import { AppSessionController } from './controllers/app.session.controller';
 import { AppUserLinkController } from './controllers/app-user-link.controller';
 import { CommissionController } from './controllers/commission.controller';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'src/common/auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([]), CommonModule, AuthModule],

@@ -1,5 +1,5 @@
 import { Module, HttpModule } from '@nestjs/common';
-import { CommonModule } from '../common/common.module';
+import { CommonModule } from '../../common/common/common.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pickup } from './entitys/pickup.entity';
 import { Topic } from './entitys/topic.entity';
@@ -29,4 +29,4 @@ import { MonitorController } from './controllers/monitor.controller';
     MonitorController,
   ],
 })
-export class ShopModule {}
+export class ShopModule { }

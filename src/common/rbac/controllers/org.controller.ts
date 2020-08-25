@@ -4,7 +4,7 @@ import { CommonOutput } from "src/shared/dtos/common-output.dto";
 import { GetOrganizationUnitUsers } from "../dtos/input/get-organization-unit-users.input";
 import { GetOrganizationUnitRolesInput } from "../dtos/input/get-organization-unit-roles.input";
 import { Organization } from "src/database/repositorys/entitys/rbac/org.entity";
-import { SessionService } from "src/auth/services/session.service";
+import { SessionService } from "src/common/auth/services/session.service";
 
 @Controller('api/services/app/OrganizationUnit')
 export class OrgController {

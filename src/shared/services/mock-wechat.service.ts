@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IWechatService } from './i-wechat.service';
-import { CodeToSession } from '../../modules/common/dtos/code2-to-session';
+import { CodeToSession } from '../../common/common/dtos/code2-to-session';
 
 @Injectable()
 export class MockWechatService implements IWechatService {

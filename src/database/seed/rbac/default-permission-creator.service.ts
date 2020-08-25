@@ -2,7 +2,7 @@ import { Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { Repository, TreeRepository } from "typeorm";
 import { Permission } from "../../repositorys/entitys/authorization/permission.entity";
 import { InjectRepository } from "@nestjs/typeorm";
-import { AppPermissions } from "src/auth/app-permissions";
+import { AppPermissions } from "src/common/auth/app-permissions";
 
 @Injectable()
 export class DefaultPermissionCreator implements OnApplicationBootstrap {

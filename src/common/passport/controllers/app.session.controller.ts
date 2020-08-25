@@ -3,7 +3,7 @@ import { logind } from '../../common/dtos/logind.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/database/repositorys/services/rbac/user.service';
-import { SessionService } from 'src/auth/services/session.service';
+import { SessionService } from 'src/common/auth/services/session.service';
 
 @ApiTags('admin')
 @ApiBearerAuth()

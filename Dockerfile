@@ -1,9 +1,10 @@
-from node:12
+from keymetrics/pm2:latest-alpine
 workdir /usr/src/app
 copy package*.json ./
-RUN npm install
+CMD ["npm" ,"install", "-g", "cnpm", "--registry=https://registry.npm.taobao.org"]
+CMD ["cnpm", "install","--production"]
 
 COPY . .
 expose 3000
-cmd ["npm","i","pm2","-g"]
-cmd ["npm","run","start:deploy"]
+cmd ["cnpm","i","pm2","-g"]
+cmd ["pm2-docker", "start" ,"dist/main.js"]
